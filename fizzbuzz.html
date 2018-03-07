@@ -6,38 +6,35 @@
             counter-reset: items;
         }
 
-        .item:before {
+        div:before {
             display: inline;
             content: counter(items) '. ';
             counter-increment: items;
         }
 
-        .item:after {
+        div:after {
             display: inline;
         }
 
-        .item:nth-of-type(3n):after {
+        div:nth-of-type(3n):after {
             content: 'Fizz';
         }
 
-        .item:nth-of-type(5n):after {
+        div:nth-of-type(5n):after {
             content: 'Buzz';
         }
 
-        .item:nth-of-type(15n):after {
+        div:nth-of-type(15n):after {
             content: 'FizzBuzz';
         }
     </style>
 </head>
 <body>
-    <div class="items"></div>
     <script>
-        for (let i = 0; i < 100; i++) {
-            const div = document.createElement('div')
-
-            div.className = 'item'
-            document.querySelector('.items').append(div)
-        }
+        document.body.append.apply(
+            document.body,
+            Array(100).fill(0).map(() => document.createElement('div'))
+        )
     </script>
 </body>
 </html>
